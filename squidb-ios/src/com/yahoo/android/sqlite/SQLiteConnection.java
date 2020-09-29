@@ -16,6 +16,7 @@
 
 package com.yahoo.android.sqlite;
 
+import com.google.j2objc.annotations.WeakOuter;
 import com.yahoo.android.sqlite.SQLiteDebug.DbStats;
 import com.yahoo.squidb.data.ICursor;
 import com.yahoo.squidb.utility.Logger;
@@ -1299,6 +1300,7 @@ public final class SQLiteConnection /*implements CancellationSignal.OnCancelList
         public boolean mInUse;
     }
 
+    @WeakOuter
     private final class PreparedStatementCache
             extends LruCache<String, PreparedStatement> {
 
