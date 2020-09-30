@@ -161,7 +161,6 @@ static void sqliteProfileCallback(void *data, const char *sql, sqlite3_uint64 tm
 }
 
 + (NSObject *) nativePrepareStatement:(NSObject *)connectionPtr withSql:(NSString *)sqlString {
-    SQLitePreparedStatement *preparedStatement;
     SQLiteConnectionNative* connection = (SQLiteConnectionNative *)(connectionPtr);
 
     IOSByteArray *sql = [sqlString getBytesWithEncoding:NSUTF16StringEncoding];
@@ -232,6 +231,7 @@ static void sqliteProfileCallback(void *data, const char *sql, sqlite3_uint64 tm
         while (name[length]) {
             length += 1;
         }
+        IOSCharArray *chars = [IOSCharArray newArrayWithChars:name count:length];
         return [NSString stringWithCharacters:chars];
     }
     return nil;
