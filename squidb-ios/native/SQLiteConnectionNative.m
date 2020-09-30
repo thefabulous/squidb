@@ -237,6 +237,8 @@ static void sqliteProfileCallback(void *data, const char *sql, sqlite3_uint64 tm
         }
         IOSCharArray *chars = [IOSCharArray newArrayWithChars:name count:length];
         NSString *result = [NSString stringWithCharacters:chars];
+        NSLog(@"Tomek - testing fix");
+        [chars release];
         [chars release];
         return result;
     }
