@@ -161,6 +161,8 @@ static void sqliteProfileCallback(void *data, const char *sql, sqlite3_uint64 tm
 }
 
 + (NSObject *) nativePrepareStatement:(NSObject *)connectionPtr withSql:(NSString *)sqlString {
+    SQLitePreparedStatement *preparedStatement;
+    @autoreleasepool {
     SQLiteConnectionNative* connection = (SQLiteConnectionNative *)(connectionPtr);
 
     IOSByteArray *sql = [sqlString getBytesWithEncoding:NSUTF16StringEncoding];
@@ -184,7 +186,9 @@ static void sqliteProfileCallback(void *data, const char *sql, sqlite3_uint64 tm
     }
 
 //    ALOGV("Prepared statement %p on connection %p", statement, connection->db);
-    return [[SQLitePreparedStatement alloc] initWithStatement:statement];
+    preparedStatement = [[SQLitePreparedStatement alloc] initWithStatement:statement];
+    }
+    return preparedStatement;
 }
 
 + (void) nativeFinalizeStatement:(NSObject *)connectionPtr statement:(NSObject *)statementPtr {
