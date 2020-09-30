@@ -232,7 +232,9 @@ static void sqliteProfileCallback(void *data, const char *sql, sqlite3_uint64 tm
             length += 1;
         }
         IOSCharArray *chars = [IOSCharArray newArrayWithChars:name count:length];
-        return [NSString stringWithCharacters:chars];
+        NSString *result = [NSString stringWithCharacters:chars];
+        [chars release];
+        return result;
     }
     return nil;
 }
