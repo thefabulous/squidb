@@ -16,7 +16,9 @@
 
 package com.yahoo.android.sqlite;
 
+import com.google.j2objc.annotations.Weak;
 import com.google.j2objc.annotations.WeakOuter;
+
 import com.yahoo.android.sqlite.SQLiteDebug.DbStats;
 import com.yahoo.squidb.data.ICursor;
 import com.yahoo.squidb.utility.Logger;
@@ -92,7 +94,7 @@ public final class SQLiteConnection /*implements CancellationSignal.OnCancelList
 
     private final CloseGuard mCloseGuard = CloseGuard.get();
 
-    private final SQLiteConnectionPool mPool;
+    @Weak private final SQLiteConnectionPool mPool;
     private final SQLiteDatabaseConfiguration mConfiguration;
     private final int mConnectionId;
     private final boolean mIsPrimaryConnection;
