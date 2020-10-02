@@ -62,3 +62,7 @@ artifacts {
     archives javadocJar
     archives sourcesJar
 }
+
+dependencies {
+    compile 'com.google.j2objc:j2objc-annotations:1.1'
+}

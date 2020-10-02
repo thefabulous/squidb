@@ -5,6 +5,7 @@
  */
 package com.yahoo.squidb.ios;
 
+import com.google.j2objc.annotations.Weak;
 import com.yahoo.android.sqlite.SQLiteDatabase;
 import com.yahoo.android.sqlite.SQLiteOpenHelper;
 import com.yahoo.squidb.data.ISQLiteDatabase;
@@ -20,7 +21,7 @@ import java.io.File;
  */
 public class IOSOpenHelper extends SQLiteOpenHelper implements ISQLiteOpenHelper {
 
-    private final SquidDatabase.OpenHelperDelegate delegate;
+    @Weak private final SquidDatabase.OpenHelperDelegate delegate;
 
     public IOSOpenHelper(String path, String name, SquidDatabase.OpenHelperDelegate delegate,
             int version) {
