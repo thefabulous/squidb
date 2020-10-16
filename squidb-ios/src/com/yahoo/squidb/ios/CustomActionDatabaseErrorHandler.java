@@ -17,6 +17,10 @@ public class CustomActionDatabaseErrorHandler extends DefaultDatabaseErrorHandle
         }
     }
 
+    public void setDelegate(Delegate delegate) {
+        this.delegate = delegate;
+    }
+
     public interface Delegate {
         boolean shouldPerformCustomActionOnCorruption();
         void performCustomActionOnCorruption();
