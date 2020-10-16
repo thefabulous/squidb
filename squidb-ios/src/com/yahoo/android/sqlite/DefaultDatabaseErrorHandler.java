@@ -38,7 +38,7 @@ import java.util.List;
  * If null is specified for DatabaeErrorHandler param in the above calls, then this class is used
  * as the default {@link DatabaseErrorHandler}.
  */
-public final class DefaultDatabaseErrorHandler implements DatabaseErrorHandler {
+public class DefaultDatabaseErrorHandler implements DatabaseErrorHandler {
 
     private static final String TAG = "DefaultDatabaseErrorHandler";
 
