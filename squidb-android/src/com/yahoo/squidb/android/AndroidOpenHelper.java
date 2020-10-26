@@ -6,6 +6,7 @@
 package com.yahoo.squidb.android;
 
 import android.content.Context;
+import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
@@ -25,8 +26,8 @@ public class AndroidOpenHelper extends SQLiteOpenHelper implements ISQLiteOpenHe
     private final SquidDatabase.OpenHelperDelegate delegate;
 
     public AndroidOpenHelper(Context context, String name, SquidDatabase.OpenHelperDelegate delegate,
-            int version) {
-        super(context.getApplicationContext(), name, null, version);
+            int version, DatabaseErrorHandler errorHandler) {
+        super(context.getApplicationContext(), name, null, version, errorHandler);
         this.context = context.getApplicationContext();
         this.delegate = delegate;
     }
